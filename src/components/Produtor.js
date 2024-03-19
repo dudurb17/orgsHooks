@@ -1,12 +1,17 @@
 import React from "react";
 import { Image, StyleSheet, Text, View } from "react-native";
+import Estrelas from "./Estrelas";
 
 const Produtor = ({ nome, image, distancia, estrelas }) => {
   return (
     <View style={estilos.cartao}>
       <Image source={image} accessibilityLabel={nome} style={estilos.img} />
       <View style={estilos.informacoes}>
-        <Text style={estilos.nome}>{nome}</Text>
+        <View>
+          <Text style={estilos.nome}>{nome}</Text>
+          <Estrelas quantidade={estrelas} />
+        </View>
+
         <Text style={estilos.distancia}>{distancia}</Text>
       </View>
     </View>
