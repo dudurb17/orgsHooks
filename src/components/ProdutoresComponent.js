@@ -1,15 +1,11 @@
 import React, { useEffect, useState } from "react";
 import { FlatList, StyleSheet, Text } from "react-native";
 import { carregaProdutores } from "../services/carregaDados";
+import Produtor from "./Produtor";
 
 const ProdutoresComponent = ({ topo: Topo }) => {
   const [titulo, setTitulo] = useState("");
-  const [lista, setLista] = useState([
-    {
-      nome: "",
-      image: "",
-    },
-  ]);
+  const [lista, setLista] = useState([]);
 
   useEffect(() => {
     const retorno = carregaProdutores();
@@ -30,7 +26,7 @@ const ProdutoresComponent = ({ topo: Topo }) => {
     <FlatList
       data={lista}
       keyExtractor={({ nome }) => nome}
-      renderItem={({ item }) => <Text>{item.nome}</Text>}
+      renderItem={({ item }) => <Produtor {...item} />}
       ListHeaderComponent={TopoLista}
     />
   );
