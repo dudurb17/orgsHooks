@@ -17,7 +17,7 @@ const ProdutoresComponent = ({ topo: Topo }) => {
 
   return (
     <FlatList
-      data={lista}
+      data={lista.sort((a, b) => a.distancia - b.distancia)}
       key={({ item }) => item.id}
       renderItem={({ item }) => <Produtor {...item} />}
       ListHeaderComponent={TopoLista}
