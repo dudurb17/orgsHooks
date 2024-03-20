@@ -5,7 +5,6 @@ import useProdutores from "../hooks/useProdutores";
 
 const ProdutoresComponent = ({ topo: Topo }) => {
   const [titulo, lista] = useProdutores();
- 
 
   const TopoLista = () => {
     return (
@@ -19,7 +18,7 @@ const ProdutoresComponent = ({ topo: Topo }) => {
   return (
     <FlatList
       data={lista}
-      keyExtractor={({ nome }) => nome}
+      key={({ item }) => item.id}
       renderItem={({ item }) => <Produtor {...item} />}
       ListHeaderComponent={TopoLista}
     />
